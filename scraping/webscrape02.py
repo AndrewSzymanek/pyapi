@@ -44,8 +44,10 @@ def get_names():
        html = BeautifulSoup(response, 'html.parser')
        names = set()
        for li in html.select('li'):
-           for name in li.text.split('\n'):
+            for name in li.text.split('\n'):
+          # for name in li.text:
                if len(name) > 0:
+                   # check to see if string has any integers in it?
                    names.add(name.strip())
        return list(names)
 
