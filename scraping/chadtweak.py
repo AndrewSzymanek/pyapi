@@ -53,16 +53,16 @@ def get_names():
                 # commented this way because this is the only way comments are removed by the Python parser
                if len(name) > 1 and any(char.isdigit() for char in name) == False and len(name.split(' ')) < 6:
                    names.add(name.strip())
-       num = 0
+       num= 0
        for x in list(names):
-           num +=1
+           num += 1
            print(num, x)
-       return names
+
    # Raise an exception if we failed to get any data from the url
    raise Exception('Error retrieving contents at {}'.format(url))
 
 def main():
-   get_names()
+   print(get_names())
 
 if __name__ == "__main__":
    main()
