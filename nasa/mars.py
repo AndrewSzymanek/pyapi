@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 import requests
-
+import threading
+import time
 
 def main():
     marsresp = requests.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY").json()
@@ -22,6 +23,11 @@ def main():
        # dates.append(pic.get("earth_date"))
    # for link in links:
        # print(link, '\n')
-
+def groundcontrol():
+     for i in range(10, -1, -1):
+         print(i)
+         time.sleep(1)
+mythread = threading.Thread(target=main)
+mythread.start()
 if __name__ == "__main__":
-    main()
+    groundcontrol()
